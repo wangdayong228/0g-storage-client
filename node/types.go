@@ -160,3 +160,9 @@ func (t TxSeqOrRoot) MarshalJSON() ([]byte, error) {
 
 	return json.Marshal(t.Root)
 }
+
+// FlowProof 表示流证明
+type FlowProof struct {
+	Lemma []common.Hash `json:"lemma"`
+	Path  []bool        `json:"path"`
+}

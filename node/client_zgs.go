@@ -96,3 +96,8 @@ func (c *ZgsClient) DownloadSegmentWithProof(ctx context.Context, root common.Ha
 func (c *ZgsClient) GetShardConfig(ctx context.Context) (shard.ShardConfig, error) {
 	return providers.CallContext[shard.ShardConfig](c, ctx, "zgs_getShardConfig")
 }
+
+// GetSectorProof 调用 zgs_getSectorProof RPC 以获取扇区的证明。
+func (c *ZgsClient) GetSectorProof(ctx context.Context, sectorIndex uint64, flowRoot *common.Hash) (*FlowProof, error) {
+	return providers.CallContext[*FlowProof](c, ctx, "zgs_getSectorProof", sectorIndex, flowRoot)
+}
